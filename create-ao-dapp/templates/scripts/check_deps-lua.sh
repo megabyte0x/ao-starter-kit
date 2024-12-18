@@ -8,9 +8,9 @@ RED='\033[0;31m'    # Red color for errors
 GREEN='\033[0;32m'  # Green color for success messages
 NC='\033[0m'        # No Color (reset to default)
 
-# Check if Lua is installed and the correct version
-if ! lua -v | grep -q "$LUA_VERSION"; then
-    echo -e "${RED}Lua $LUA_VERSION is not installed.${NC}"
+# Check if Lua is installed and the version is 5.4.6 or above
+if ! lua -v | grep -q "Lua \?5\.4\.[6-9]\|5\.4\.[1-9][0-9]"; then
+    echo -e "${RED}Lua 5.4.6 or higher is required.${NC}"
     exit 1
 fi
 
